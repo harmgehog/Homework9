@@ -4,12 +4,12 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-int Recursion(int M, int N, int result)
+int Recursion(int M, int N)
 {
-    if (M == N) return M;
-    result = M + Recursion(M + 1, N, result);
-    Console.WriteLine(result);
-    return result;
+    if (M != N) return (M + Recursion(M + 1, N));
+    else return 0;
+    // Console.WriteLine(result);
+    // return result;
 }
 
 int GetNum(string text)
@@ -20,5 +20,5 @@ int GetNum(string text)
 
 int numberM = GetNum("Введите значение числа M: ");
 int numberN = GetNum("Введите значение числа N: ");
-int result = 0;
-Recursion(numberM, numberN, result);
+int result = Recursion(numberM, numberN) + numberN;
+Console.WriteLine(result);
